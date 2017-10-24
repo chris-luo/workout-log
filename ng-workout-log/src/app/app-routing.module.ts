@@ -6,6 +6,10 @@ const appRoutes: Routes = [
     {
         path: '',
         component: HomeComponent
+    },
+    {
+        path: 'exercises',
+        loadChildren: './exercise/exercise.module#ExerciseModule'
     }
 ]
 

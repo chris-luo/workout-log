@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
+import { ExerciseService } from './exercise/exercise.service';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,7 @@ import { CoreModule } from './core/core.module';
     BrowserModule,
     CoreModule
   ],
-  providers: [],
+  providers: [ExerciseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
