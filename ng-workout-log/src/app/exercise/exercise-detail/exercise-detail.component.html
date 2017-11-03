@@ -2,4 +2,31 @@
     <img src="{{exercise.imagePath}}" alt="" class="img-responsive" style="max-height: 200px;">
     <p>{{ exercise.name }}</p>
     <p>{{ exercise.description }}</p>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Weights</h3>
+      </div>
+      <div class="col-sm-6">
+          <h3>Reps</h3>
+      </div>
+    </div>
+    <form>
+    <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+                <mat-form-field>
+                    <input matInput placeholder="Weights">
+                  </mat-form-field>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+                <mat-form-field>
+                    <input matInput placeholder="Reps">
+                  </mat-form-field>
+            </div>
+          </div>
+    </div>
+  </form>
   </mat-card>
