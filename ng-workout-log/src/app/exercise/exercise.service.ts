@@ -10,4 +10,8 @@ export class ExerciseService {
     getExercises() {
         return this.exercises.slice();
     }
+
+    getExercise(index: number) {
+        return this.exercises.slice()[index];
+    }
 }
