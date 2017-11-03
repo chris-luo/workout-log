@@ -1,5 +1,2 @@
-<mat-card *ngFor="let exercise of exercises">
-    <p>{{ exercise.name }}</p>
-    <p>{{ exercise.description }}</p>
-    <img src="{{exercise.imagePath}}" alt="" class="img-responsive" style="max-height: 300px;">
-</mat-card>
+<app-exercise-list-item *ngFor="let exercise of exercises; let i = index" [exercise]="exercise" [index]="i"></app-exercise-list-item>
+
