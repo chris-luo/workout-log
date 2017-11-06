@@ -6,6 +6,7 @@ import { SharedModule } from "../shared/shared.module";
 import { CommonModule } from "@angular/common";
 import { ExerciseListItemComponent } from './exercise-list/exercise-list-item/exercise-list-item.component';
 import { ExerciseDetailComponent } from './exercise-detail/exercise-detail.component';
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
     declarations: [
@@ -17,7 +18,8 @@ import { ExerciseDetailComponent } from './exercise-detail/exercise-detail.compo
     imports: [
         CommonModule,
         ExerciseRoutingModule,
-        SharedModule
+        SharedModule,
+        FormsModule
     ]
 })
 

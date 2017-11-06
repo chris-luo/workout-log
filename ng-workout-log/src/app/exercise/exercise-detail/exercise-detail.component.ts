@@ -10,6 +10,7 @@ import { ActivatedRoute, Params } from "@angular/router";
 })
 export class ExerciseDetailComponent implements OnInit {
   exercise: Exercise;
+  sets: Set[] = [];
 
   constructor(private exerciseService: ExerciseService, private route: ActivatedRoute) { }
 
@@ -19,4 +20,18 @@ export class ExerciseDetailComponent implements OnInit {
     })
   }
 
+  onAddSet(f) {
+    let set: Set = {
+      weight: f.value.weight,
+      reps: f.value.reps
+    }
+    this.sets.push(set);
+  }
+ 
+
+}
+
+interface Set {
+  weight: number,
+  reps: number
 }
