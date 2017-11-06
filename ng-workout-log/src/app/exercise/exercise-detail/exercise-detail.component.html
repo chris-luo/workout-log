@@ -1,45 +1,66 @@
-<mat-card class="center">
-    <img src="{{exercise.imagePath}}" alt="" class="img-responsive" style="max-height: 200px;">
-    <p>{{ exercise.name }}</p>
-    <p>{{ exercise.description }}</p>
+<div class="row">
+  <div class="col">
+    <mat-card class="center">
+      <img src="{{exercise.imagePath}}" alt="" class="img-responsive" style="max-height: 200px;">
+      <p>{{ exercise.name }}</p>
+      <p>{{ exercise.description }}</p>
 
-    <div class="row">
-      <div class="col-sm-6">
-        <h3>Weight</h3>
-      </div>
-      <div class="col-sm-6">
-          <h3>Reps</h3>
-      </div>
-    </div>
-    <div class="row" *ngFor="let set of sets">
-      <div class="col-sm-6">
-        {{ set.weight }}
-      </div>
-      <div class="col-sm-6">
-        {{ set.reps }}
-      </div>
-    </div>
-    <form #f="ngForm" (ngSubmit)="onAddSet(f)">
-    <div class="row">
-          <div class="col-sm-6">
-            <div class="form-group">
-                <mat-form-field>
-                    <input matInput placeholder="Weight" ngModel name="weight">
-                  </mat-form-field>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col">
+              <h4>Set</h4>
+            </div>
+            <div class="col">
+              <h4>Weight</h4>
+            </div>
+            <div class="col">
+              <h4>Reps</h4>
             </div>
           </div>
-          <div class="col-sm-6">
-            <div class="form-group">
-                <mat-form-field>
-                    <input matInput placeholder="Reps" ngModel name="reps">
-                  </mat-form-field>
+          <div class="row" *ngFor="let set of sets; let i = index">
+            <div class="col">
+              <p>{{ i + 1 }}</p>
+            </div>
+            <div class="col">
+              {{ set.weight }}
+            </div>
+            <div class="col">
+              {{ set.reps }}
             </div>
           </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-12">
-        <button class="btn btn-primary" type="submit">Add</button>
+        </div>
       </div>
-    </div>
-  </form>
-  </mat-card>
+
+      <form #f="ngForm" (ngSubmit)="onAddSet(f)">
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <mat-form-field>
+                <input matInput placeholder="Weight" ngModel name="weight">
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <mat-form-field>
+                <input matInput placeholder="Reps" ngModel name="reps">
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <button mat-raised-button color="primary" type="submit">Add</button>
+          </div>
+        </div>
+      </form>
+      <div class="row">
+        <div class="col">
+          <button mat-raised-button color="primary" type="submit">Complete Exercise</button>
+        </div>
+      </div>
+    </mat-card>
+
+  </div>
+</div>
