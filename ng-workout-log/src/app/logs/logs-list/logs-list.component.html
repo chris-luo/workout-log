@@ -1,3 +1,5 @@
-<p>
-  logs-list works!
-</p>
+<div class="row" *ngFor="let log of logs">
+  <div class="col">
+      <app-log-item [log]="log"></app-log-item>      
+  </div>
+</div>

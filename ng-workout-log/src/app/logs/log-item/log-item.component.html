@@ -1,3 +1,5 @@
-<p>
-  log-item works!
-</p>
+<mat-card>
+    <p>{{ log.dateTime | date }}</p>    
+    <p>{{ log.exercise }}</p>
+    <p *ngFor="let set of log.sets">{{ set.weight }} {{ set.reps }}</p>
+</mat-card>

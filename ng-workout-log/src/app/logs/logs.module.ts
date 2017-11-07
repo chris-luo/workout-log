@@ -4,11 +4,13 @@ import { LogsRoutingModule } from './logs-routing.module';
 import { LogsComponent } from './logs.component';
 import { LogItemComponent } from './log-item/log-item.component';
 import { LogsListComponent } from './logs-list/logs-list.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    LogsRoutingModule
+    LogsRoutingModule,
+    SharedModule
   ],
   declarations: [LogsComponent, LogItemComponent, LogsListComponent]
 })
