@@ -10,6 +10,10 @@ const appRoutes: Routes = [
     {
         path: 'exercises',
         loadChildren: './exercise/exercise.module#ExerciseModule'
+    },
+    {
+        path: 'logs',
+        loadChildren: './logs/logs.module#LogsModule'
     }
 ]
 
