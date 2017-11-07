@@ -1,4 +1,4 @@
-import { Exercise, LogEntry } from "./exercise.model";
+import { Exercise } from "./exercise.model";
 
 export class ExerciseService {
     private exercises: Exercise[] = [
@@ -7,17 +7,11 @@ export class ExerciseService {
         new Exercise('Deadlift', 'Everything for days', '')
     ]
 
-    private logEntries: LogEntry[] = [];
-
     getExercises() {
         return this.exercises.slice();
     }
 
     getExercise(index: number) {
         return this.exercises.slice()[index];
-    }
-
-    addLogEntry(logEntry: LogEntry) {
-        this.logEntries.push(logEntry);
     }
 }

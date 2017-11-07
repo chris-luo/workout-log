@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ExerciseService } from "../exercise.service";
-import { Exercise, LogEntry, Set } from '../exercise.model';
 import { ActivatedRoute, Params, Router } from "@angular/router";
+
+import { Exercise } from '../exercise.model';
+import { LogEntry, Set } from '../../logs/logs.model';
 import * as moment from "moment";
+import { LogsService } from '../../logs/logs.service';
 
 @Component({
   selector: 'app-exercise-detail',
@@ -16,7 +19,8 @@ export class ExerciseDetailComponent implements OnInit {
   constructor(
     private exerciseService: ExerciseService, 
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private logsService: LogsService
   ) { }
 
   ngOnInit() {
@@ -37,7 +41,7 @@ export class ExerciseDetailComponent implements OnInit {
   onComplete() {
     const logEntry = new LogEntry(this.exercise.name, moment().format() ,this.sets);
     console.log(logEntry);
-    this.exerciseService.addLogEntry(logEntry);
+    this.logsService.addLogEntry(logEntry);
     this.router.navigate(['../'], { relativeTo: this.route });
   }
 }
