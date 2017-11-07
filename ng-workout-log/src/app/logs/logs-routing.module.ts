@@ -5,7 +5,7 @@ import { LogsComponent } from "./logs.component";
 const LogRoutes: Routes = [
     {
         path: '',
-        component: LogsComponent
+        component: LogsComponent,
     }
 ]
 
@@ -14,7 +14,7 @@ const LogRoutes: Routes = [
         RouterModule.forChild(LogRoutes)
     ],
     exports: [
-        
+        RouterModule
     ]
 })
 
