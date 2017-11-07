@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ExerciseService } from "../exercise.service";
 import { Exercise } from '../exercise.model';
-import { ActivatedRoute, Params } from "@angular/router";
+import { ActivatedRoute, Params, Router } from "@angular/router";
 
 @Component({
   selector: 'app-exercise-detail',
@@ -12,7 +12,11 @@ export class ExerciseDetailComponent implements OnInit {
   exercise: Exercise;
   sets: Set[] = [];
 
-  constructor(private exerciseService: ExerciseService, private route: ActivatedRoute) { }
+  constructor(
+    private exerciseService: ExerciseService, 
+    private route: ActivatedRoute,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
@@ -27,8 +31,10 @@ export class ExerciseDetailComponent implements OnInit {
     }
     this.sets.push(set);
   }
- 
 
+  onComplete() {
+    this.router.navigate(['../'], { relativeTo: this.route });
+  }
 }
 
 interface Set {
