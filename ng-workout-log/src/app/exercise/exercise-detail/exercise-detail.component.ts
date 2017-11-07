@@ -37,6 +37,7 @@ export class ExerciseDetailComponent implements OnInit {
   onComplete() {
     const logEntry = new LogEntry(this.exercise.name, moment().format() ,this.sets);
     console.log(logEntry);
+    this.exerciseService.addLogEntry(logEntry);
     this.router.navigate(['../'], { relativeTo: this.route });
   }
 }
