@@ -5,6 +5,8 @@ import * as logger from "morgan";
 import * as cors from "cors";
 import * as pg from "pg";
 
+import ResourceRouter from "./routes/ResourceRouter";
+
 export class App {
     public express: any;
     private server: any;
@@ -33,6 +35,8 @@ export class App {
         this.express = express();
         this.port = +config.get('PORT');
         this.createServer();
+        this.middleware();
+        this.mountRoutes();
         this.listen();
     }
 
@@ -43,6 +47,10 @@ export class App {
     private middleware(): void {
         this.express.use(logger('dev'));
         this.express.use(cors());
+    }
+
+    private mountRoutes() {
+        this.express.use('/resources', ResourceRouter);
     }
 
     private listen(): void {
