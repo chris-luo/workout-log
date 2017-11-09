@@ -15,8 +15,11 @@ export class ExerciseListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.exercises = this.exerciseService.getExercises();
+    this.exerciseService.getExercises((exercises: Exercise[]) => {
+      this.exercises = exercises;
     console.log(this.exercises)
+    
+    });
   }
 
 }

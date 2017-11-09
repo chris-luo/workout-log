@@ -11,15 +11,17 @@ export class ExerciseService {
         new Exercise('Deadlift', 'Everything for days', '')
     ]
 
-    constructor(private apiService: ApiService) {}
+    constructor(private apiService: ApiService) {
 
-    getExercises() {
+    }
+
+    getExercises(callback) {
         this.apiService.getExercises()
-            .subscribe(res => {
-                this.exercises = res.data;
-
-            });
-        return this.exercises.slice();
+        .subscribe(res => {
+            this.exercises = res.data;
+            callback(res.data);
+        });
+        // return this.exercises.slice();
     }
 
     getExercise(index: number) {
