@@ -1,4 +1,7 @@
 import { Router, Request, Response, NextFunction } from "express";
+import { dbPool } from "../functions/Database";
+import { QueryResult } from "pg";
+import { Exercise } from "../model/Exercise";
 
 export class ResourceRouter {
     router: Router;
@@ -10,7 +13,17 @@ export class ResourceRouter {
 
     public getExercises(req: Request, res: Response, next: NextFunction) {
         //Get exercises from database.
-        console.log(req);
+        dbPool.get(`SELECT * FROM exercise`, (results: QueryResult) => {
+            console.log(results.rows);
+            const exercises: Exercise[] = []
+            for (let row of results.rows) {
+                exercises.push(new Exercise(row.exercise, row.description, row.image_path));
+            }
+
+            res.json({
+                data: exercises
+            });
+        });
     }
 
     init() {
