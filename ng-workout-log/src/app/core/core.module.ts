@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
     declarations: [
@@ -13,7 +14,8 @@ import { SharedModule } from '../shared/shared.module';
     imports: [
         AppRoutingModule,
         SharedModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        HttpModule
     ],
     exports: [
         NavbarComponent,
